@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370bee39234441239f103dc26ff06c0c, type: 3}
+  m_Name: SockSprites
+  m_EditorClassIdentifier: 
+  name: sock
+  sprites:
+  - id: normal
+    animated: 0
+    onceThrough: 0
+    spriteAnimation: {fileID: 0}
+    staticSprite: {fileID: 21300000, guid: 6fa6ed13c83bb5f45a639c5d05345d7a, type: 3}
+  - id: zzz
+    animated: 0
+    onceThrough: 0
+    spriteAnimation: {fileID: 0}
+    staticSprite: {fileID: 21300000, guid: 52027d1871ebcec42b4bc2c0934ab4d9, type: 3}
+  - id: extremely
+    animated: 0
+    onceThrough: 0
+    spriteAnimation: {fileID: 0}
+    staticSprite: {fileID: 21300000, guid: e58d641b1b4756547940f7bb2b6a92d4, type: 3}
