@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : Movable {
+public class PlayerMovement : Moveable {
     private void OnEnable() {
         ControlManager.Instance.controls.Gameplay.Move.performed += OnMove;
         ControlManager.Instance.controls.Gameplay.Move.canceled += OnRelease;
