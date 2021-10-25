@@ -12,7 +12,8 @@ ScriptedImporter:
   stringIDs: []
   compilationStatus: 0
   isSuccesfullyCompiled: 0
-  compilationErrorMessage: The node 'DOCUMENTATION NODE' contains illegal characters
-    in its title.
+  compilationErrorMessage: "Error on line 7 at position 36:\nmismatched input '}'
+    expecting '('\r\nWelcome to Scrump World, {CHAR_NAME}.\r\n                                  
+    ^"
   baseLanguage: {instanceID: 0}
   localizations: []

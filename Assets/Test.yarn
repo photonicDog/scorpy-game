@@ -1,10 +1,14 @@
 title: Start
 tags: 
 colorID: 0
-position: -217,-379
+position: -163,-735
 ---
+<<if $SWAP is 1>>
+    [[FlagTest]] 
+<<endif>>
+
 <<c junk normal>>
-Welcome to Scrump World.
+Welcome to Scrump World, {$CHAR_NAME}.
 <<c junk evil>>
 In this world, we have to get our "scrump on".
 <<c sock zzz>>
@@ -13,11 +17,12 @@ Huh?
 Wha?
 <<c sock extremely>>
 What??!?!?!?!?!?!?!?!?
+<<set $SWAP to 1>>
 ===
 title: DOCUMENTATION
 tags: 
 colorID: 0
-position: -747,-384
+position: -754,-380
 ---
 Here's all the commands. When writing these, don't do the parentheses.
 
@@ -25,6 +30,7 @@ TALKSPRITE TAGS:
 <<c (name) (expression)>> before a line to change the displayed character.
 if a name has nothing after it, it probably doesn't have any talksprites or animations. assume everyone has a normal talksprite though
 CHARACTERS:
+char - normal
 junk - normal, surprised, evil
 sock - normal, zzz, extremely
 meat
@@ -40,6 +46,7 @@ WALKSPRITE MOVEMENT:
 WALKSPRITE ANIMATION:
 <<a (name) (animation)>> plays the specified animation associated with the character.
 LIST:
+char
 junk
 sock
 meat
@@ -63,4 +70,12 @@ SEQUENCING:
 
 FLAGS:
 Check the YarnSpinner documentation on how to use these.
+===
+title: FlagTest
+tags: 
+colorID: 0
+position: -160,-431
+---
+<<c junk normal>>
+OK I'm done talking to you.
 ===
