@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 107700396}
   - component: {fileID: 107700395}
+  - component: {fileID: 107700397}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -166,6 +167,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &107700397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107700394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 802b1265f4a04049927b0ef197baf019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flags: {fileID: 11400000, guid: f670bc3d0a234bf43ae2c5444530f504, type: 2}
 --- !u!1 &270942405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1779,8 +1793,8 @@ GameObject:
   - component: {fileID: 7072103041799189324}
   - component: {fileID: 7072103041799189325}
   - component: {fileID: 7072103041799189322}
-  - component: {fileID: 7072103041799189323}
   - component: {fileID: 7072103041799189321}
+  - component: {fileID: 7072103041799189323}
   m_Layer: 0
   m_Name: Dialogue Runner
   m_TagString: Untagged
@@ -1818,7 +1832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueContainer: {fileID: 7072103041255776681}
-  textSpeed: 0.045
+  textSpeed: 0.01
   optionButtons:
   - {fileID: 2698630789080438975}
   - {fileID: 270942406}
@@ -1955,11 +1969,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7072103041799189320}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 610c541718d694070a21327d1ae62e75, type: 3}
+  m_Script: {fileID: 11500000, guid: ccb652804eb94ce5a218513d5dabd2a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultVariables: []
-  debugTextView: {fileID: 0}
+  _flagManager: {fileID: 107700397}
 --- !u!4 &7072103041799189324
 Transform:
   m_ObjectHideFlags: 0
@@ -1987,7 +2000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yarnScripts:
-  - {fileID: 2480198943629176163, guid: 57bdc5d453c9ff14792d8b69ab76a2d6, type: 3}
+  - {fileID: 2480198943629176163, guid: 1cbed3645cb7ae14fb4290ecc506d0d6, type: 3}
   textLanguage: 
   variableStorage: {fileID: 7072103041799189323}
   dialogueUI: {fileID: 7072103041799189322}
