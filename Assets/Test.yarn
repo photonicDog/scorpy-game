@@ -14,13 +14,16 @@ Wha?
 <<c sock extremely>>
 What??!?!?!?!?!?!?!?!?
 ===
-title: DOCUMENTATION NODE
+title: DOCUMENTATION
 tags: 
 colorID: 0
 position: -747,-384
 ---
+Here's all the commands. When writing these, don't do the parentheses.
+
 TALKSPRITE TAGS:
 <<c (name) (expression)>> before a line to change the displayed character.
+if a name has nothing after it, it probably doesn't have any talksprites or animations. assume everyone has a normal talksprite though
 CHARACTERS:
 junk - normal, surprised, evil
 sock - normal, zzz, extremely
@@ -44,4 +47,20 @@ chug
 bark
 boil
 scum
+
+CAMERA CONTROLS:
+<<focT (gameobject name)>> focuses on the gameobject, like a character.
+<<focP (x)_(y)>> focuses on an x and y position.
+<<focD (x) (y)>> moves the camera relative to the current position.
+
+INVENTORY:
+<<give (itemID) (qty)>> Give that many items to the player.
+<<take (itemID) (qty)>> Take that many items from the player. 0 will take all.
+
+SEQUENCING:
+<<warp (x) (y)>> warps the player to the x and y position.
+<<chase (chase sequence ID)>> begins the chase sequence with the supplied ID.
+
+FLAGS:
+Check the YarnSpinner documentation on how to use these.
 ===
