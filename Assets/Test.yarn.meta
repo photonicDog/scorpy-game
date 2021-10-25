@@ -8,11 +8,12 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
-  baseLanguageID: 
+  baseLanguageID: en-US
   stringIDs: []
   compilationStatus: 0
   isSuccesfullyCompiled: 0
-  compilationErrorMessage: The node 'DOCUMENTATION NODE' contains illegal characters
-    in its title.
+  compilationErrorMessage: "Error on line 7 at position 36:\nmismatched input '}'
+    expecting '('\r\nWelcome to Scrump World, {CHAR_NAME}.\r\n                                  
+    ^"
   baseLanguage: {instanceID: 0}
   localizations: []
