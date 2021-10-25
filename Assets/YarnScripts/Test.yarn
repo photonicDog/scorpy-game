@@ -1,7 +1,7 @@
 title: Start
 tags: 
 colorID: 0
-position: -133,-376
+position: -217,-379
 ---
 <<c junk normal>>
 Welcome to Scrump World.
@@ -13,4 +13,54 @@ Huh?
 Wha?
 <<c sock extremely>>
 What??!?!?!?!?!?!?!?!?
+===
+title: DOCUMENTATION
+tags: 
+colorID: 0
+position: -747,-384
+---
+Here's all the commands. When writing these, don't do the parentheses.
+
+TALKSPRITE TAGS:
+<<c (name) (expression)>> before a line to change the displayed character.
+if a name has nothing after it, it probably doesn't have any talksprites or animations. assume everyone has a normal talksprite though
+CHARACTERS:
+junk - normal, surprised, evil
+sock - normal, zzz, extremely
+meat
+chug
+bark
+boil
+scum
+
+WALKSPRITE MOVEMENT:
+<<m (name) (x) (y) (speed)>> moves the relevant character to a position relative to their position
+<<bm (name) (x) (y) (speed)>> does the same thing but forces the game to wait while it happens
+
+WALKSPRITE ANIMATION:
+<<a (name) (animation)>> plays the specified animation associated with the character.
+LIST:
+junk
+sock
+meat
+chug
+bark
+boil
+scum
+
+CAMERA CONTROLS:
+<<focT (gameobject name)>> focuses on the gameobject, like a character.
+<<focP (x)_(y)>> focuses on an x and y position.
+<<focD (x) (y)>> moves the camera relative to the current position.
+
+INVENTORY:
+<<give (itemID) (qty)>> Give that many items to the player.
+<<take (itemID) (qty)>> Take that many items from the player. 0 will take all.
+
+SEQUENCING:
+<<warp (x) (y)>> warps the player to the x and y position.
+<<chase (chase sequence ID)>> begins the chase sequence with the supplied ID.
+
+FLAGS:
+Check the YarnSpinner documentation on how to use these.
 ===

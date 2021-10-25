@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 57bdc5d453c9ff14792d8b69ab76a2d6
+guid: 1cbed3645cb7ae14fb4290ecc506d0d6
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -9,14 +9,10 @@ ScriptedImporter:
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
   baseLanguageID: en-US
-  stringIDs:
-  - Test-Start-0
-  - Test-Start-1
-  - Test-Start-2
-  - Test-Start-3
-  - Test-Start-4
-  compilationStatus: 1
-  isSuccesfullyCompiled: 1
-  compilationErrorMessage: 
-  baseLanguage: {fileID: 7128917941130120860, guid: 57bdc5d453c9ff14792d8b69ab76a2d6, type: 3}
+  stringIDs: []
+  compilationStatus: 0
+  isSuccesfullyCompiled: 0
+  compilationErrorMessage: The node 'DOCUMENTATION NODE' contains illegal characters
+    in its title.
+  baseLanguage: {instanceID: 0}
   localizations: []
