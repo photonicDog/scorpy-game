@@ -8,8 +8,11 @@ public class PlayerInteraction : MonoBehaviour {
 
     [SerializeField] private List<Interactable> _interactablesInRadius;
 
+    private BoxCollider2D collideableArea;
+
     private void Awake() {
         _interactablesInRadius = new List<Interactable>();
+        collideableArea = GetComponent<BoxCollider2D>();
     }
 
     private void OnEnable() {
@@ -33,5 +36,14 @@ public class PlayerInteraction : MonoBehaviour {
     
     public void RemoveInteractable(Interactable interactable) {
         _interactablesInRadius.Remove(interactable);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Collideable collide = collision.gameObject.GetComponent<Collideable>();
+        if (collide != null && collision.bounds.Intersects(collideableArea.bounds))
+        {
+            collide.Activate();
+        }
     }
 }
