@@ -25,3 +25,6 @@ MonoBehaviour:
   - name: CHAR_NAME
     value: BITCH
     type: 1
+  - name: SWAP
+    value: 0
+    type: 0

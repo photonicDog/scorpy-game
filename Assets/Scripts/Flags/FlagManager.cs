@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn;
 using Object = System.Object;
 
 namespace Flags {
@@ -33,8 +34,12 @@ namespace Flags {
             _flags.SetFlag(id, v);
         }
 
-        public object GetFlag(string id) {
+        public Value GetFlag(string id) {
             return _flags.GetFlag(id);
+        }
+
+        public void Bind(string id, Flag.FlagDelegate del, bool bind = true) {
+            _flags.Bind(id, del, bind);
         }
     }
 }

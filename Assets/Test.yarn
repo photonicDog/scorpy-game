@@ -1,8 +1,12 @@
 title: Start
 tags: 
 colorID: 0
-position: -217,-379
+position: -163,-735
 ---
+<<if $SWAP is 1>>
+    [[FlagTest]] 
+<<endif>>
+
 <<c junk normal>>
 Welcome to Scrump World, {$CHAR_NAME}.
 <<c junk evil>>
@@ -13,6 +17,7 @@ Huh?
 Wha?
 <<c sock extremely>>
 What??!?!?!?!?!?!?!?!?
+<<set $SWAP to 1>>
 ===
 title: DOCUMENTATION
 tags: 
@@ -46,4 +51,12 @@ chug
 bark
 boil
 scum
+===
+title: FlagTest
+tags: 
+colorID: 0
+position: -160,-431
+---
+<<c junk normal>>
+OK I'm done talking to you.
 ===
