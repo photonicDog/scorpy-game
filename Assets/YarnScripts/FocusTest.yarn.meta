@@ -1,0 +1,30 @@
+fileFormatVersion: 2
+guid: de3f775cba7da8149bd38da7932fa787
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  baseLanguageID: en-GB
+  stringIDs:
+  - FocusTest-Start-0
+  - FocusTest-Start-1
+  - FocusTest-Start-2
+  - FocusTest-Start-3
+  - FocusTest-Start-4
+  - FocusTest-FocusTest-5
+  - FocusTest-FocusTest-6
+  - FocusTest-FocusTest-7
+  - FocusTest-FocusTest-8
+  - FocusTest-FocusTest-9
+  - FocusTest-FocusTest-10
+  - FocusTest-FocusTest-11
+  - FocusTest-FocusTest-12
+  compilationStatus: 1
+  isSuccesfullyCompiled: 1
+  compilationErrorMessage: 
+  baseLanguage: {fileID: 7128917941130120860, guid: de3f775cba7da8149bd38da7932fa787, type: 3}
+  localizations: []

@@ -1,0 +1,65 @@
+title: FocusTest
+tags: 
+colorID: 0
+position: 862,408
+---
+<<c junk normal>>
+good morning little idiot
+<<c junk evil>>
+would you like to see my car
+<<c sock zzz>>
+Huh?
+<<focT focusTest>>
+<<c junk normal>>
+there it's is. The car
+but guess what. look a little further
+<<focT focusTest2>>
+that's right. lightningmcqueen is my fucking wife
+<<c sock normal>>
+What?
+<<focT Player>>
+<<c junk normal>>
+now...
+look over there dunkass
+<<focD 3 -2>>
+Made you look :)
+<<focT Player>>
+<<c sock extremely>>
+What??!?!?!?!?!?!?!?!?
+<<c junk normal>>
+okay now get the hell out of here
+why don't you stand over there since you love it so much
+<<warp 5 -2>>
+<<wait 1>>
+<<c sock extremely>>
+what is this power...
+[[LockoutTest]]
+===
+title: LockoutTest
+tags: 
+colorID: 0
+position: 621,648
+---
+<<focT Observable>>
+<<c junk normal>>
+i actually have a third car too. but she goes to another test scene
+<<focT Player>>
+<<c sock zzz>>
+Sure...
+<<focT Observable>>
+<<c junk normal>>
+hey now...
+<<c junk evil>>
+don't be jealous of my three exhaust smoking girlfriends
+<<focT Player>>
+<<c sock normal>>
+Can you actually drive?
+<<focT Observable>>
+<<c junk evil>>
+...
+... ...
+... ... ...
+<<c junk normal>>
+...no
+<<focT Player>>
+===

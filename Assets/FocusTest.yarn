@@ -1,0 +1,12 @@
+[
+	{
+		"title": "FocusTest",
+		"tags": "",
+		"body": "<<c junk normal>>\ngood morning little idiot\n<<c junk evil>>\nwould you like to see my car\n<<c sock zzz>>\nHuh?\n<<focP focusTest>>\n<<c junk normal>>\nthere it's is. The car\nbut guess what. look a little further\n<<focP focusTest2>>\nthat's right. lightningmcqueen is my fucking wife\n<<c sock normal>>\nWhat?\n<<focP Player>>\n<<c junk normal>>\nnow...\nlook over there dunkass\n<<focD 3 -2>>\nMade you look :)\n<<focP Player>>\n<<c sock extremely>>\nWhat??!?!?!?!?!?!?!?!?\n",
+		"position": {
+			"x": 860,
+			"y": 407
+		},
+		"colorID": 0
+	}
+]
