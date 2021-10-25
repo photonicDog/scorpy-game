@@ -22,9 +22,8 @@ public class Moveable : MonoBehaviour
     }
 
     protected void OnMove(InputAction.CallbackContext callbackContext) {
-        if (!CanMove) return;
-        Debug.Log("Moving!");
         if (!lastMoveInput.Equals(callbackContext)) lastMoveInput = callbackContext;
+        if (!CanMove) return;
         Vector2 input = callbackContext.ReadValue<Vector2>();
         _frameVelocity = input * speed;
         OnWalk?.Invoke(input);
