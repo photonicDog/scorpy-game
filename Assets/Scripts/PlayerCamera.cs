@@ -115,12 +115,12 @@ public class PlayerCamera : MonoBehaviour
     private IEnumerator SmoothTransition()
     {
         Vector3 startPos = transform.position;
-        float ellapsedTime = 0f;
-        while (ellapsedTime < smoothTime)
+        float elapsedTime = 0f;
+        while (elapsedTime < smoothTime)
         {
             Vector3 endPos = KeepCameraInArea(_focus.position + Vector3.back);
-            ellapsedTime += Time.deltaTime;
-            transform.position = Vector3.Lerp(startPos, endPos, ellapsedTime / smoothTime);
+            elapsedTime += Time.deltaTime;
+            transform.position = Vector3.Lerp(startPos, endPos, elapsedTime / smoothTime);
             yield return null;
         }
         _isSmoothing = false;

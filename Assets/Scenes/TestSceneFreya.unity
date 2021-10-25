@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 545448797}
   - component: {fileID: 545448796}
   - component: {fileID: 545448795}
+  - component: {fileID: 545448798}
   m_Layer: 0
   m_Name: focusTest
   m_TagString: Untagged
@@ -221,8 +222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d8930f8d5c53d49b211f7af0907475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: -7.17, y: -1.88, z: 0}
-  bounds: {fileID: 2025007666}
 --- !u!61 &545448796
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -270,6 +269,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &545448798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545448792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8208c67f3a9e4787aa8779908d9911fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {x: 0, y: 0, z: 0}
+  bounds: {fileID: 2025007666}
 --- !u!1 &934583010
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,6 +908,7 @@ GameObject:
   - component: {fileID: 2125238065}
   - component: {fileID: 2125238068}
   - component: {fileID: 2125238067}
+  - component: {fileID: 2125238069}
   m_Layer: 0
   m_Name: focusTest2
   m_TagString: Untagged
@@ -980,8 +994,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90f0c7a78afd7964a8ac77e25704a2cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 0, y: 0, z: 0}
-  bounds: {fileID: 2025007666}
 --- !u!61 &2125238068
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1008,6 +1020,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.8125, y: 4.28125}
   m_EdgeRadius: 0
+--- !u!114 &2125238069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125238064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8208c67f3a9e4787aa8779908d9911fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {x: 0, y: 0, z: 0}
+  bounds: {fileID: 2025007666}
 --- !u!1 &2137581791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,6 +1082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+  CanMove: 1
 --- !u!114 &2137581794
 MonoBehaviour:
   m_ObjectHideFlags: 0
