@@ -21,10 +21,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  intFlags: []
-  stringFlags:
-  - ID: $CHAR_NAME
+  defaultFlags:
+  - name: CHAR_NAME
     value: BITCH
-  boolFlags:
-  - ID: 
-    value: 0
+    type: 1

@@ -8,7 +8,19 @@ namespace Flags {
         public FlagSet flags;
         private FlagSet _flags;
 
+        private static FlagManager _instance;
+        public static FlagManager Instance {
+            get { return _instance; }
+        }
+
         private void Awake() {
+            if (_instance != null && _instance != this) {
+                Destroy(this);
+            }
+            else {
+                _instance = this;
+            }
+            
             _flags = Instantiate(flags);
         }
 
@@ -17,15 +29,7 @@ namespace Flags {
             _flags = Instantiate(flags);
         }
 
-        public void SetFlag(string id, int v) {
-            _flags.SetFlag(id, v);
-        }
-        
-        public void SetFlag(string id, string v) {
-            _flags.SetFlag(id, v);
-        }
-        
-        public void SetFlag(string id, bool v) {
+        public void SetFlag(string id, Yarn.Value v) {
             _flags.SetFlag(id, v);
         }
 
