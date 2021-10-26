@@ -1,0 +1,22 @@
+[
+	{
+		"title": "FocusTest",
+		"tags": "",
+		"body": "<<c junk normal>>\ngood morning little idiot\n<<c junk evil>>\nwould you like to see my car\n<<c sock zzz>>\nHuh?\n<<focT focusTest>>\n<<c junk normal>>\nthere it's is. The car\nbut guess what. look a little further\n<<focT focusTest2>>\nthat's right. lightningmcqueen is my fucking wife\n<<c sock normal>>\nWhat?\n<<focT Player>>\n<<c junk normal>>\nnow...\nlook over there dunkass\n<<focD 3 -2>>\nMade you look :)\n<<focT Player>>\n<<c sock extremely>>\nWhat??!?!?!?!?!?!?!?!?\n<<c junk normal>>\nokay now get the hell out of here\nwhy don't you stand over there since you love it so much\n<<warp 5 -2>>\n<<wait 1>>\n<<c sock extremely>>\nwhat is this power...\n[[LockoutTest]]",
+		"position": {
+			"x": 862,
+			"y": 407
+		},
+		"colorID": 0
+	},
+	{
+		"title": "LockoutTest",
+		"tags": "",
+		"body": "<<focT Observable>>\n<<c junk normal>>\ni actually have a third car too. but she goes to another test scene\n<<focT Player>>\n<<c sock zzz>>\nSure...\n<<focT Observable>>\n<<c junk normal>>\nhey now...\n<<c junk evil>>\ndon't be jealous of my three exhaust smoking girlfriends\n<<focT Player>>\n<<c sock normal>>\nCan you actually drive?\n<<focT Observable>>\n<<c junk evil>>\n...\n... ...\n... ... ...\n<<c junk normal>>\n...no\n<<focT Player>>",
+		"position": {
+			"x": 621,
+			"y": 648
+		},
+		"colorID": 0
+	}
+]
