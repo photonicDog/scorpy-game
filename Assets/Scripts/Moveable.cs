@@ -9,27 +9,26 @@ public class Moveable : MonoBehaviour
     private Vector2 _frameVelocity;
 
     [Header("Movement Parameters")] 
-    [SerializeField] private float speed;
+    [SerializeField] public float speed;
 
     public delegate void MoveDelegate(Vector2 direction);
     public MoveDelegate OnWalk;
     public bool CanMove = true;
 
-    private InputAction.CallbackContext lastMoveInput;
+    private Vector2 lastMoveInput;
 
-    private void FixedUpdate() {
+    protected virtual void FixedUpdate() {
         _rb.velocity = _frameVelocity;
     }
 
-    protected void OnMove(InputAction.CallbackContext callbackContext) {
-        if (!lastMoveInput.Equals(callbackContext)) lastMoveInput = callbackContext;
+    protected void OnMove(Vector2 vec) {
+        if (!lastMoveInput.Equals(vec)) lastMoveInput = vec;
         if (!CanMove) return;
-        Vector2 input = callbackContext.ReadValue<Vector2>();
-        _frameVelocity = input * speed;
-        OnWalk?.Invoke(input);
+        _frameVelocity = vec * speed;
+        OnWalk?.Invoke(vec);
     }
 
-    protected void OnRelease(InputAction.CallbackContext callbackContext) {
+    protected void OnRelease() {
         Stop();
     }
 
@@ -47,11 +46,11 @@ public class Moveable : MonoBehaviour
         StartCoroutine(WaitForMove(lastMoveInput));
     }
     
-    private IEnumerator WaitForMove(InputAction.CallbackContext callbackContext) {
+    private IEnumerator WaitForMove(Vector2 vec) {
         Debug.Log("Halting movement...");
         yield return new WaitUntil(() => CanMove);
         Debug.Log("Resuming movement.");
-        OnMove(callbackContext);
+        OnMove(vec);
     }
     
     public void AssignRigidbody2D(Rigidbody2D rb) {

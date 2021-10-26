@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour {
     }
     private static DialogueManager _instance;
     
-    [HideInInspector] public DialogueRunner Runner;
+    public DialogueRunner Runner;
 
     private void Awake() {
         if (_instance != null && _instance != this) {
@@ -19,7 +19,5 @@ public class DialogueManager : MonoBehaviour {
         else {
             _instance = this;
         }
-        
-        Runner = GetComponentInChildren<DialogueRunner>();
     }
 }

@@ -1,8 +1,12 @@
 title: Start
 tags: 
 colorID: 0
-position: -217,-379
+position: -217,-380
 ---
+<<if $SWAP > 0>>
+[[Bother1]]
+<<endif>>
+
 <<c junk normal>>
 Welcome to Scrump World.
 <<c junk evil>>
@@ -13,11 +17,12 @@ Huh?
 Wha?
 <<c sock extremely>>
 What??!?!?!?!?!?!?!?!?
+<<set $SWAP to 1>>
 ===
 title: DOCUMENTATION
 tags: 
 colorID: 0
-position: -747,-384
+position: -746,-385
 ---
 Here's all the commands. When writing these, don't do the parentheses.
 
@@ -56,6 +61,11 @@ CAMERA CONTROLS:
 INVENTORY:
 <<give (itemID) (qty)>> Give that many items to the player.
 <<take (itemID) (qty)>> Take that many items from the player. 0 will take all.
+Sets flag to true if you have more, less, or equal of itemID than qty: 
+  <<icM (itemID) (qty) (flag)>> more
+  <<icL (itemID) (qty) (flag)>> less
+  <<icE (itemID) (qty) (flag)>> equal
+
 
 SEQUENCING:
 <<warp (x) (y)>> warps the player to the x and y position.
@@ -63,4 +73,28 @@ SEQUENCING:
 
 FLAGS:
 Check the YarnSpinner documentation on how to use these.
+===
+title: Bother1
+tags: 
+colorID: 0
+position: -211,-146
+---
+<<if $SWAP > 1>>
+[[Bother2]]
+<<endif>>
+<<c junk normal>>
+Stop bothering me. Take this Wet Food.
+<<give WET_FOOD 1>>
+<<set $SWAP to 2>>
+===
+title: Bother2
+tags: 
+colorID: 0
+position: -212,79
+---
+<<c junk evil>>
+FUck you.
+<<if $HAS_WET_FOOD is true>>
+You have wetfood.
+<<endif>>
 ===

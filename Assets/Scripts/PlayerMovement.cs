@@ -22,4 +22,12 @@ public class PlayerMovement : Moveable {
         // TODO: Put this in UIStateManager
         ControlManager.Instance.SwitchControlSchema(ControlSchema.GAMEPLAY);
     }
+
+    private void OnMove(InputAction.CallbackContext callbackContext) {
+        OnMove(callbackContext.ReadValue<Vector2>());
+    }
+
+    private void OnRelease(InputAction.CallbackContext callbackContext) {
+        OnRelease();
+    }
 }
