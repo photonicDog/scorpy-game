@@ -1223,6 +1223,8 @@ GameObject:
   - component: {fileID: 1978465014}
   - component: {fileID: 1978465019}
   - component: {fileID: 1978465020}
+  - component: {fileID: 1978465022}
+  - component: {fileID: 1978465021}
   m_Layer: 0
   m_Name: Chaser
   m_TagString: Untagged
@@ -1238,7 +1240,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978465012}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.35, y: 1.84, z: 0}
+  m_LocalPosition: {x: 3, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1601,6 +1603,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 061e86f15fb55b24b9ae4050efbfd839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
+  CanMove: 1
+--- !u!95 &1978465021
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978465012}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 4564376923bc3f246bd098ed51d56b70, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1978465022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978465012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cec1213581b0b04983a944bad604387, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2009983859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1773,7 +1808,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137581791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2009983860}
