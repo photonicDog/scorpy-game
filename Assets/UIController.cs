@@ -13,7 +13,6 @@ public class UIController : MonoBehaviour
     void Start()
     {
         _inventoryManager = InventoryManager.Instance;
-        List<GameObject> items = new List<GameObject>();
 
         foreach (Item item in _inventoryManager.inventory)
         {
@@ -22,7 +21,22 @@ public class UIController : MonoBehaviour
             uiItem.SetTitle(item.Name);
             uiItem.SetDescription(item.Description);
             uiItem.SetSprite(item.ItemSprite);
-            items.Add(newItem);
+            uiItem.SetQuantity(item.qty);
+            newItem.SetActive(true);
+        }
+    }
+
+    void RegenerateInventory() {
+        _inventoryManager = InventoryManager.Instance;
+
+        foreach (Item item in _inventoryManager.CurrentlyDisplayedInventory())
+        {
+            var newItem = Instantiate(ItemView, InventoryContent.transform, false);
+            UIItem uiItem = newItem.GetComponent<UIItem>();
+            uiItem.SetTitle(item.Name);
+            uiItem.SetDescription(item.Description);
+            uiItem.SetSprite(item.ItemSprite);
+            uiItem.SetQuantity(item.qty);
             newItem.SetActive(true);
         }
     }
