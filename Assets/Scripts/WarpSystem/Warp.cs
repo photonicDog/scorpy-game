@@ -6,12 +6,18 @@ namespace WarpSystem {
         public Vector3 position;
         public Collider2D bounds;
     
-        public void Do(Transform player, PlayerCamera playerCamera)
+        public void Do(Transform entity, bool IsPlayer, PlayerCamera playerCamera = null)
         {
-            StartCoroutine(WarpRoutine(player, playerCamera));
+            if (IsPlayer)
+            {
+                StartCoroutine(WarpPlayerRoutine(entity, playerCamera));
+            } else
+            {
+                WarpEntity(entity);
+            }
         }
 
-        private IEnumerator WarpRoutine(Transform player, PlayerCamera playerCamera)
+        private IEnumerator WarpPlayerRoutine(Transform player, PlayerCamera playerCamera)
         {
             Moveable playerMovement = player.GetComponent<Moveable>();
             playerMovement.PauseMovement();
@@ -20,8 +26,13 @@ namespace WarpSystem {
             playerCamera.CurrentArea = bounds;
             System.Random rand = new System.Random();
             yield return new WaitForSeconds((float)rand.NextDouble());
-            yield return StartCoroutine(playerCamera.Fade());
+            yield return StartCoroutine(playerCamera.Fade(0f));
             playerMovement.CanMove = true;
+        }
+
+        private void WarpEntity(Transform entity)
+        {
+            entity.position = position;
         }
     }
 }

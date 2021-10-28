@@ -1,18 +1,20 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.WarpSystem;
+using UnityEngine;
 
 namespace WarpSystem {
     [RequireComponent(typeof(Warp))]
-    public class WarpableArea : Collideable
+    public class WarpableArea : Collideable, IWarpable
     {
         private Warp _warp;
+        public Warp Warp { get => _warp; set => _warp = value; }
 
         public override void Awake() {
             base.Awake();
-            _warp = GetComponent<Warp>();
+            Warp = GetComponent<Warp>();
         }
 
         public override void Activate() {
-            _warp.Do(_player, _playerCamera);
+            Warp.Do(_player, true, _playerCamera);
         }
     }
 }

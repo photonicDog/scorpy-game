@@ -6,6 +6,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : Moveable {
 
+    public float StaminaMax;
+    public float Stamina;
+    public float StaminaRegenPerFrame;
+    public float DelayOnFullBarUse;
+
+    public float SprintMod;
+    public float StaminaDrainPerFrame;
+
+    public bool Sprint;
+
     private void OnEnable() {
         ControlManager.Instance.controls.Gameplay.Move.performed += OnMove;
         ControlManager.Instance.controls.Gameplay.Move.canceled += OnRelease;
@@ -23,8 +33,22 @@ public class PlayerMovement : Moveable {
         ControlManager.Instance.SwitchControlSchema(ControlSchema.GAMEPLAY);
     }
 
+    private void Update()
+    {
+        if (Stamina > StaminaMax)
+        {
+            Stamina = StaminaMax;
+        }
+    }
+
     private void OnMove(InputAction.CallbackContext callbackContext) {
-        OnMove(callbackContext.ReadValue<Vector2>());
+        Vector2 movement = callbackContext.ReadValue<Vector2>();
+        if (Sprint)
+        {
+            movement *= SprintMod;
+            Stamina -= StaminaDrainPerFrame;
+        }
+        OnMove(movement);
     }
 
     private void OnRelease(InputAction.CallbackContext callbackContext) {

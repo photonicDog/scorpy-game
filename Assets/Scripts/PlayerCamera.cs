@@ -137,15 +137,7 @@ public class PlayerCamera : MonoBehaviour
         FocusCameraOnPosition(_focus.position + displacement);
     }
 
-    public void WarpPlayer(Vector3 position, Collider2D bounds)
-    {
-        StartCoroutine(Fade());
-        _player.position = position;
-        CurrentArea = bounds;
-        StartCoroutine(Fade());
-    }
-
-    public IEnumerator Fade()
+    public IEnumerator Fade(float fadeAmount = 1f)
     {
         Vector3 startPos = transform.position;
         float ellapsedTime = 0f;
@@ -154,7 +146,7 @@ public class PlayerCamera : MonoBehaviour
         while (ellapsedTime < fadeTime)
         {
             ellapsedTime += Time.deltaTime;
-            color.a = Mathf.Lerp(startColor.a, 1 - startColor.a, ellapsedTime / smoothTime);
+            color.a = Mathf.Lerp(startColor.a, fadeAmount, ellapsedTime / smoothTime);
             _fade.color = color;
             yield return null;
         }
