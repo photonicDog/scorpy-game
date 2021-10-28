@@ -2240,6 +2240,7 @@ MonoBehaviour:
   yarnScripts:
   - {fileID: 2480198943629176163, guid: 1cbed3645cb7ae14fb4290ecc506d0d6, type: 3}
   - {fileID: 2480198943629176163, guid: de3f775cba7da8149bd38da7932fa787, type: 3}
+  - {fileID: 2480198943629176163, guid: 5616245c6428be5499f9c6d185aac2e6, type: 3}
   textLanguage: 
   variableStorage: {fileID: 7072103041799189323}
   dialogueUI: {fileID: 7072103041799189322}
