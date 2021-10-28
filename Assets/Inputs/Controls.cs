@@ -41,6 +41,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""92aa6286-eb75-4ce5-b245-5214b0b1cbae"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -120,6 +128,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7463dfbf-90fa-4d9d-b4af-112717d16f15"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -147,6 +166,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""name"": ""Cancel"",
                     ""type"": ""Button"",
                     ""id"": ""326e4675-2eeb-4f75-bae3-a3ef0cfc6705"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Exit"",
+                    ""type"": ""Button"",
+                    ""id"": ""d3e49df9-d0e0-40e0-9b0e-5a0dea4f9e71"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -227,6 +254,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6379711c-cd95-488f-a1ab-a093ea4c8941"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Exit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -349,11 +387,13 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
         m_Gameplay_Sprint = m_Gameplay.FindAction("Sprint", throwIfNotFound: true);
+        m_Gameplay_Menu = m_Gameplay.FindAction("Menu", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Move = m_UI.FindAction("Move", throwIfNotFound: true);
         m_UI_Confirm = m_UI.FindAction("Confirm", throwIfNotFound: true);
         m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
+        m_UI_Exit = m_UI.FindAction("Exit", throwIfNotFound: true);
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
         m_Dialogue_Move = m_Dialogue.FindAction("Move", throwIfNotFound: true);
@@ -411,6 +451,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Interact;
     private readonly InputAction m_Gameplay_Sprint;
+    private readonly InputAction m_Gameplay_Menu;
     public struct GameplayActions
     {
         private @Controls m_Wrapper;
@@ -418,6 +459,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
         public InputAction @Sprint => m_Wrapper.m_Gameplay_Sprint;
+        public InputAction @Menu => m_Wrapper.m_Gameplay_Menu;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -436,6 +478,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Sprint.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSprint;
                 @Sprint.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSprint;
                 @Sprint.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSprint;
+                @Menu.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
+                @Menu.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
+                @Menu.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -449,6 +494,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Sprint.started += instance.OnSprint;
                 @Sprint.performed += instance.OnSprint;
                 @Sprint.canceled += instance.OnSprint;
+                @Menu.started += instance.OnMenu;
+                @Menu.performed += instance.OnMenu;
+                @Menu.canceled += instance.OnMenu;
             }
         }
     }
@@ -460,6 +508,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_UI_Move;
     private readonly InputAction m_UI_Confirm;
     private readonly InputAction m_UI_Cancel;
+    private readonly InputAction m_UI_Exit;
     public struct UIActions
     {
         private @Controls m_Wrapper;
@@ -467,6 +516,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_UI_Move;
         public InputAction @Confirm => m_Wrapper.m_UI_Confirm;
         public InputAction @Cancel => m_Wrapper.m_UI_Cancel;
+        public InputAction @Exit => m_Wrapper.m_UI_Exit;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -485,6 +535,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Cancel.started -= m_Wrapper.m_UIActionsCallbackInterface.OnCancel;
                 @Cancel.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnCancel;
                 @Cancel.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnCancel;
+                @Exit.started -= m_Wrapper.m_UIActionsCallbackInterface.OnExit;
+                @Exit.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnExit;
+                @Exit.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnExit;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -498,6 +551,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Cancel.started += instance.OnCancel;
                 @Cancel.performed += instance.OnCancel;
                 @Cancel.canceled += instance.OnCancel;
+                @Exit.started += instance.OnExit;
+                @Exit.performed += instance.OnExit;
+                @Exit.canceled += instance.OnExit;
             }
         }
     }
@@ -556,12 +612,14 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
+        void OnMenu(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnConfirm(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
+        void OnExit(InputAction.CallbackContext context);
     }
     public interface IDialogueActions
     {
