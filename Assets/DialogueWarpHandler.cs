@@ -28,6 +28,6 @@ public class DialogueWarpHandler : MonoBehaviour
         float x = float.Parse(parameters[0]);
         float y = float.Parse(parameters[1]);
         _warp.position = new Vector3(x, y);
-        _warp.Do(player, playerCamera);
+        _warp.Do(player, true, playerCamera);
     }
 }
