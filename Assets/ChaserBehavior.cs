@@ -25,6 +25,7 @@ public class ChaserBehavior : Moveable {
     public bool _chasing;
     private Collider2D _nextRoom;
     private Action _onDestinationReached;
+    private bool _isTravelling;
 
     private Queue<Vector2> _patrolRoute;
     private Vector2 _nextPatrolDest;
@@ -43,41 +44,51 @@ public class ChaserBehavior : Moveable {
         _player = GameObject.FindWithTag("Player").transform;
 
         _patrolRoute = new Queue<Vector2>();
-        _patrolRoute.Enqueue(new Vector2(0.75f, 3.75f));
-        _patrolRoute.Enqueue(new Vector2(0.75f, 13.75f));
-        _patrolRoute.Enqueue(new Vector2(-16.75f, 13.75f));
-        _patrolRoute.Enqueue(new Vector2(0.75f, 13.75f));
-        _patrolRoute.Enqueue(new Vector2(0.75f, 3.75f));
+        _patrolRoute.Enqueue(new Vector2(113f, 80f)); //Middle of BNG
+        _patrolRoute.Enqueue(new Vector2(48f, -3f)); //Middle of T1G
+        _patrolRoute.Enqueue(new Vector2(117f, 9f)); //Middle of FOUNG
+        _patrolRoute.Enqueue(new Vector2(113f, 80f)); //Middle of BNG
+        _patrolRoute.Enqueue(new Vector2(175f, -1f)); //Middle of T2G
+        _patrolRoute.Enqueue(new Vector2(117f, 9f)); //Middle of FOUNG
     }
 
     // Update is called once per frame
     protected void Update() {
-        Debug.DrawLine(transform.position, _scoutTarget);
-        _agent.isStopped = false;
+
+        if (_agent.isOnOffMeshLink && !_isTravelling)
+        {
+            StartCoroutine(Travel());
+        }
+
         Collider2D playerRoom = Camera.main.GetComponent<PlayerCamera>().CurrentArea;
         Vector3 zAdjustedPosition = new Vector3(transform.position.x, transform.position.y, 0);
 
-
-        CheckPlayer();
-
-        if(_scouting && !playerRoom.bounds.Contains(zAdjustedPosition))
+        if (_agent.pathStatus == NavMeshPathStatus.PathComplete && _agent.remainingDistance <= 0)
         {
-            GetToNextRoom(_nextRoom);
-        }
+            NavMeshHit hit;
+            NavMesh.SamplePosition(_scoutTarget, out hit, 0.5f, NavMesh.GetAreaFromName("Walkable"));
+            if (Vector3.Distance(zAdjustedPosition, _scoutTarget) <= 1f || !hit.hit)
+            {
+                _scoutTarget = Vector3.zero;
+                _scouting = false;
+            }
 
-        if(_agent.pathStatus == NavMeshPathStatus.PathComplete && _agent.remainingDistance <= 0)
-        {
             if (_onDestinationReached != null)
             {
                 _onDestinationReached.Invoke();
                 _onDestinationReached = null;
-            } else if (!_chasing && !_scouting)
+            }
+            else if (!_chasing && !_scouting)
             {
                 Vector3 nextDest = _patrolRoute.Dequeue();
                 nextDest.z = transform.position.z;
                 _nextPatrolDest = nextDest;
                 _patrolRoute.Enqueue(nextDest);
             }
+        }
+
+        if (!_isTravelling) {
+            CheckPlayer();
         }
 
         if (_agent.pathStatus == NavMeshPathStatus.PathPartial && !_agent.hasPath)
@@ -96,6 +107,11 @@ public class ChaserBehavior : Moveable {
         } else
         {
             Patrol();
+        }
+
+        if (!_scouting && _scoutTarget != Vector3.zero)
+        {
+            _scoutTarget = Vector3.zero;
         }
     }
 
@@ -167,47 +183,21 @@ public class ChaserBehavior : Moveable {
         }
         else if (!hidden && !wallCast && (distanceToPlayer < ChaseRadius || (distanceToPlayer < SightRadius) && hasLineOfSight || distanceToPlayer < SightRadius && _chasing == true))
         {
-            Debug.Log("Seen!");
             _scouting = false;
             _chasing = true;
         }
-        else if (_scoutTarget == null)
+        else if (_scoutTarget == Vector3.zero)
         {
             Collider2D playerRoom = Camera.main.GetComponent<PlayerCamera>().CurrentArea;
-            if (playerRoom.bounds.Contains(zAdjustedPosition))
+            if (!playerRoom.bounds.Contains(zAdjustedPosition) && _chasing == true)
+            {
+                _chasing = false;
+                _scoutTarget = _player.position;
+                _scouting = true;
+            } else
             {
                 _chasing = false;
                 _scouting = false;
-            }
-            else
-            {
-                _nextRoom = playerRoom;
-                _scouting = true;
-                GetToNextRoom(_nextRoom);
-            }
-        }
-    }
-
-    private void GetToNextRoom(Collider2D desiredRoomBounds)
-    {
-        Collider2D currentRoom;
-        foreach (GameObject bounds in GameObject.FindGameObjectsWithTag("CameraBounds"))
-        {
-            if (bounds.GetComponent<Collider2D>().bounds.Contains(transform.position))
-            {
-                currentRoom = bounds.GetComponent<Collider2D>();
-                break;
-            }
-        }
-
-        foreach (IWarpable warpable in FindObjectsOfType<MonoBehaviour>().OfType<IWarpable>())
-        {
-            Collider2D warpLocation = warpable.Warp.bounds;
-            if(_nextRoom = warpLocation)
-            {
-                _scoutTarget = warpable.Warp.transform.position;
-                _onDestinationReached = new Action(() => warpable.Warp.Do(transform, false));
-                break;
             }
         }
     }
@@ -254,5 +244,19 @@ public class ChaserBehavior : Moveable {
         else y = -1f;
         
         return new Vector2(x, y).normalized;
+    }
+
+    private IEnumerator Travel()
+    {
+        _isTravelling = true;
+           SpriteRenderer spRender = GetComponent<SpriteRenderer>();
+        Collider2D collider = GetComponent<BoxCollider2D>();
+        spRender.enabled = false;
+        collider.enabled = false;
+        yield return new WaitForSeconds(2f);
+        _agent.CompleteOffMeshLink();
+        spRender.enabled = true;
+        collider.enabled = true;
+        _isTravelling = false;
     }
 }
