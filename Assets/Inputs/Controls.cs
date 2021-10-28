@@ -49,6 +49,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""4963a919-8179-4dc1-bfef-ee55618c6808"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -139,6 +147,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2d79a055-a89c-4beb-8b4d-5e525abdd7f2"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": ""Hold(duration=2)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -174,6 +193,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""name"": ""Exit"",
                     ""type"": ""Button"",
                     ""id"": ""d3e49df9-d0e0-40e0-9b0e-5a0dea4f9e71"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""92bd1064-51ab-4176-a48a-3cddef4fc880"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -267,6 +294,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Exit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea5e57cf-1e69-453b-9256-2f42259dbe7a"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": ""Hold(duration=2)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -294,6 +332,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""name"": ""Cancel"",
                     ""type"": ""Button"",
                     ""id"": ""7ca007f0-cd1a-4cdb-a46f-81ad476520bf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""2896a484-72f0-4d75-a267-e68f465c693f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -376,6 +422,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""67cceef2-d66b-4740-b969-c68ac075473c"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": ""Hold(duration=2)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -388,17 +445,20 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
         m_Gameplay_Sprint = m_Gameplay.FindAction("Sprint", throwIfNotFound: true);
         m_Gameplay_Menu = m_Gameplay.FindAction("Menu", throwIfNotFound: true);
+        m_Gameplay_Quit = m_Gameplay.FindAction("Quit", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Move = m_UI.FindAction("Move", throwIfNotFound: true);
         m_UI_Confirm = m_UI.FindAction("Confirm", throwIfNotFound: true);
         m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
         m_UI_Exit = m_UI.FindAction("Exit", throwIfNotFound: true);
+        m_UI_Quit = m_UI.FindAction("Quit", throwIfNotFound: true);
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
         m_Dialogue_Move = m_Dialogue.FindAction("Move", throwIfNotFound: true);
         m_Dialogue_Confirm = m_Dialogue.FindAction("Confirm", throwIfNotFound: true);
         m_Dialogue_Cancel = m_Dialogue.FindAction("Cancel", throwIfNotFound: true);
+        m_Dialogue_Quit = m_Dialogue.FindAction("Quit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -452,6 +512,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Interact;
     private readonly InputAction m_Gameplay_Sprint;
     private readonly InputAction m_Gameplay_Menu;
+    private readonly InputAction m_Gameplay_Quit;
     public struct GameplayActions
     {
         private @Controls m_Wrapper;
@@ -460,6 +521,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
         public InputAction @Sprint => m_Wrapper.m_Gameplay_Sprint;
         public InputAction @Menu => m_Wrapper.m_Gameplay_Menu;
+        public InputAction @Quit => m_Wrapper.m_Gameplay_Quit;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -481,6 +543,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Menu.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
                 @Menu.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
                 @Menu.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
+                @Quit.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnQuit;
+                @Quit.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnQuit;
+                @Quit.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnQuit;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -497,6 +562,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Menu.started += instance.OnMenu;
                 @Menu.performed += instance.OnMenu;
                 @Menu.canceled += instance.OnMenu;
+                @Quit.started += instance.OnQuit;
+                @Quit.performed += instance.OnQuit;
+                @Quit.canceled += instance.OnQuit;
             }
         }
     }
@@ -509,6 +577,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_UI_Confirm;
     private readonly InputAction m_UI_Cancel;
     private readonly InputAction m_UI_Exit;
+    private readonly InputAction m_UI_Quit;
     public struct UIActions
     {
         private @Controls m_Wrapper;
@@ -517,6 +586,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Confirm => m_Wrapper.m_UI_Confirm;
         public InputAction @Cancel => m_Wrapper.m_UI_Cancel;
         public InputAction @Exit => m_Wrapper.m_UI_Exit;
+        public InputAction @Quit => m_Wrapper.m_UI_Quit;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -538,6 +608,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Exit.started -= m_Wrapper.m_UIActionsCallbackInterface.OnExit;
                 @Exit.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnExit;
                 @Exit.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnExit;
+                @Quit.started -= m_Wrapper.m_UIActionsCallbackInterface.OnQuit;
+                @Quit.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnQuit;
+                @Quit.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnQuit;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -554,6 +627,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Exit.started += instance.OnExit;
                 @Exit.performed += instance.OnExit;
                 @Exit.canceled += instance.OnExit;
+                @Quit.started += instance.OnQuit;
+                @Quit.performed += instance.OnQuit;
+                @Quit.canceled += instance.OnQuit;
             }
         }
     }
@@ -565,6 +641,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Dialogue_Move;
     private readonly InputAction m_Dialogue_Confirm;
     private readonly InputAction m_Dialogue_Cancel;
+    private readonly InputAction m_Dialogue_Quit;
     public struct DialogueActions
     {
         private @Controls m_Wrapper;
@@ -572,6 +649,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Dialogue_Move;
         public InputAction @Confirm => m_Wrapper.m_Dialogue_Confirm;
         public InputAction @Cancel => m_Wrapper.m_Dialogue_Cancel;
+        public InputAction @Quit => m_Wrapper.m_Dialogue_Quit;
         public InputActionMap Get() { return m_Wrapper.m_Dialogue; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -590,6 +668,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Cancel.started -= m_Wrapper.m_DialogueActionsCallbackInterface.OnCancel;
                 @Cancel.performed -= m_Wrapper.m_DialogueActionsCallbackInterface.OnCancel;
                 @Cancel.canceled -= m_Wrapper.m_DialogueActionsCallbackInterface.OnCancel;
+                @Quit.started -= m_Wrapper.m_DialogueActionsCallbackInterface.OnQuit;
+                @Quit.performed -= m_Wrapper.m_DialogueActionsCallbackInterface.OnQuit;
+                @Quit.canceled -= m_Wrapper.m_DialogueActionsCallbackInterface.OnQuit;
             }
             m_Wrapper.m_DialogueActionsCallbackInterface = instance;
             if (instance != null)
@@ -603,6 +684,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Cancel.started += instance.OnCancel;
                 @Cancel.performed += instance.OnCancel;
                 @Cancel.canceled += instance.OnCancel;
+                @Quit.started += instance.OnQuit;
+                @Quit.performed += instance.OnQuit;
+                @Quit.canceled += instance.OnQuit;
             }
         }
     }
@@ -613,6 +697,7 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
+        void OnQuit(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
@@ -620,11 +705,13 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnConfirm(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
         void OnExit(InputAction.CallbackContext context);
+        void OnQuit(InputAction.CallbackContext context);
     }
     public interface IDialogueActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnConfirm(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
+        void OnQuit(InputAction.CallbackContext context);
     }
 }

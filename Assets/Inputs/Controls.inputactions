@@ -36,6 +36,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Quit",
+                    "type": "Button",
+                    "id": "4963a919-8179-4dc1-bfef-ee55618c6808",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -126,6 +134,17 @@
                     "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2d79a055-a89c-4beb-8b4d-5e525abdd7f2",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "Hold(duration=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Quit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -161,6 +180,14 @@
                     "name": "Exit",
                     "type": "Button",
                     "id": "d3e49df9-d0e0-40e0-9b0e-5a0dea4f9e71",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Quit",
+                    "type": "Button",
+                    "id": "92bd1064-51ab-4176-a48a-3cddef4fc880",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -254,6 +281,17 @@
                     "action": "Exit",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ea5e57cf-1e69-453b-9256-2f42259dbe7a",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "Hold(duration=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Quit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -281,6 +319,14 @@
                     "name": "Cancel",
                     "type": "Button",
                     "id": "7ca007f0-cd1a-4cdb-a46f-81ad476520bf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Quit",
+                    "type": "Button",
+                    "id": "2896a484-72f0-4d75-a267-e68f465c693f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -361,6 +407,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "67cceef2-d66b-4740-b969-c68ac075473c",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "Hold(duration=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Quit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
