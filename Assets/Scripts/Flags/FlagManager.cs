@@ -41,6 +41,10 @@ namespace Flags {
         public void Bind(string id, Flag.FlagDelegate del, bool bind = true) {
             _flags.Bind(id, del, bind);
         }
+
+        public FlagSet GetCurrentFlags() {
+            return _flags;
+        }
     }
 }
 

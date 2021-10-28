@@ -48,5 +48,9 @@ namespace Flags {
             } else
                 throw new Exception("Flag " + id + " does not exist!");
         }
+
+        public void SetAllFlags(FlagSet flags) {
+            yarnFlags = flags.yarnFlags;
+        }
     }
 }

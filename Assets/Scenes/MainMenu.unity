@@ -189,8 +189,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4285164138
+  m_fontColor: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1092,6 +1092,7 @@ GameObject:
   - component: {fileID: 1445366336}
   - component: {fileID: 1445366335}
   - component: {fileID: 1445366337}
+  - component: {fileID: 1445366338}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1116,6 +1117,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 1445366335}
+    - {fileID: 1445366338}
     - {fileID: 1445366336}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -1136,7 +1138,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 3
     - Name: 
       Entry: 7
       Data: 
@@ -1225,12 +1227,45 @@ MonoBehaviour:
       Data: -391
     - Name: 
       Entry: 4
-      Data: 198
+      Data: -198
     - Name: 
       Entry: 8
       Data: 
     - Name: m_Item2
-      Entry: 6
+      Entry: 7
+      Data: 8|UIScreen+UIAction, Assembly-CSharp
+    - Name: target
+      Entry: 10
+      Data: 1
+    - Name: declaringType
+      Entry: 7
+      Data: 9|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: SaveDataLink, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: methodName
+      Entry: 1
+      Data: LoadGame
+    - Name: delegateType
+      Entry: 9
+      Data: 5
+    - Name: signature
+      Entry: 7
+      Data: 10|System.Type[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
@@ -1246,38 +1281,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 8|System.Tuple`2[[UnityEngine.Vector2, UnityEngine.CoreModule],[UIScreen+UIAction,
-        Assembly-CSharp]], mscorlib
-    - Name: m_Item1
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: -315
-    - Name: 
-      Entry: 4
-      Data: -303
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: m_Item2
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 3
-    - Name: $v
-      Entry: 7
-      Data: 9|System.Tuple`2[[UnityEngine.Vector2, UnityEngine.CoreModule],[UIScreen+UIAction,
+      Data: 11|System.Tuple`2[[UnityEngine.Vector2, UnityEngine.CoreModule],[UIScreen+UIAction,
         Assembly-CSharp]], mscorlib
     - Name: m_Item1
       Entry: 7
@@ -1293,13 +1297,13 @@ MonoBehaviour:
       Data: 
     - Name: m_Item2
       Entry: 7
-      Data: 10|UIScreen+UIAction, Assembly-CSharp
+      Data: 12|UIScreen+UIAction, Assembly-CSharp
     - Name: target
       Entry: 10
-      Data: 1
+      Data: 2
     - Name: declaringType
       Entry: 7
-      Data: 11|System.RuntimeType, mscorlib
+      Data: 13|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: ApplicationQuitLink, Assembly-CSharp
@@ -1314,7 +1318,7 @@ MonoBehaviour:
       Data: 5
     - Name: signature
       Entry: 7
-      Data: 12|System.Type[], mscorlib
+      Data: 14|System.Type[], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -1545,6 +1549,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1445366338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445366329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6908d9529571fc648b9f6132fd10912d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1946806198
 GameObject:
   m_ObjectHideFlags: 0

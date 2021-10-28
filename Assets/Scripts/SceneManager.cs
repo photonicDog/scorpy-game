@@ -35,6 +35,7 @@ public class SceneManager : SerializedMonoBehaviour
     }
 
     public void SwitchLevel(int target) {
+        level = target;
         SwitchScene(target+scenesBeforeLevel);
     }
 

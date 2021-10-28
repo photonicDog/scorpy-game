@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LoadNewGame : MonoBehaviour
 {
     public void Load() {
+        SaveDataManager.Instance.CreateNewSave();
         SceneManager.Instance.SwitchLevel(0);
     }
 }
