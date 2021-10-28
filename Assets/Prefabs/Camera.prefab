@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4923218570860322558}
   - component: {fileID: 1877377746218681546}
   m_Layer: 5
-  m_Name: Square
+  m_Name: Fade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -234,4 +234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19cacfcf6348c64a86209c3a19ab303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentArea: {fileID: 0}
   smoothTime: 0.5
+  fadeTime: 0.5

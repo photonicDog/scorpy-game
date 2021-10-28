@@ -842,6 +842,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7b1a696d7c13c4eb15d641300996e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls: []
   NodeName: Start
 --- !u!114 &1424378558
 MonoBehaviour:
@@ -1231,7 +1234,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1978465013
 Transform:
   m_ObjectHideFlags: 0

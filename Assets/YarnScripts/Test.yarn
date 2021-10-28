@@ -98,3 +98,11 @@ FUck you.
 You have wetfood.
 <<endif>>
 ===
+title: Chips
+tags: 
+colorID: 0
+position: 50,-394
+---
+(chibs...)
+<<give CHIPS 1>>
+===

@@ -8,6 +8,7 @@ public class LookableObject : Interactable, IFlagChangeable {
 
     public override void Interact() {
         _dr.StartDialogue(NodeName);
+        OnInteract?.Invoke();
     }
     
     public void Alter(Yarn.Value alter) {

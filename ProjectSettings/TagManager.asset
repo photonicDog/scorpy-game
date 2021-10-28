@@ -60,3 +60,6 @@ TagManager:
   - name: UI FX
     uniqueID: 3423026817
     locked: 0
+  - name: Lighting
+    uniqueID: 1265221621
+    locked: 0
